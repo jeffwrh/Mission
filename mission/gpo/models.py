@@ -6,7 +6,7 @@ class Mission(models.Model):
     DateDebut = models.DateField()
     DateFin = models.DateField()
     Description = models.CharField(max_length=2000)
-    Personnels = models.ForeignKey('Nigend', on_delete=models.CASCADE,)
+    Nigend = models.ForeignKey('Personnel', on_delete=models.CASCADE)
 
     def __str__self(self):
         return self.NomMission
@@ -14,10 +14,10 @@ class Mission(models.Model):
 
 class Personnel(models.Model):
     Nigend = models.CharField(max_length=6, unique=True)
-    Nom = models.CharField(max=50)
+    Nom = models.CharField(max_length=50)
     Prenom = models.CharField(max_length=30)
     Tel = models.CharField(max_length=30)
-    Mail = models.CharField(max_length=100)
+    Mail = models.EmailField(max_length=100)
 
     def __str__self(self):
         return self.Nom
