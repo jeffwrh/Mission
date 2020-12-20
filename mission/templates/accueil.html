@@ -2,11 +2,44 @@
 <!DOCTYPE html>
 <html lang="fr">
 <link rel="stylesheet" type="text/css" href="{% static 'gpo/style.css' %}">
-<head>
+
+<header>
     <meta charset="UTF-8">
     <title>accueil</title>
-</head>
+</header>
+<div class="box">
+    <h1>Gestionnaire de misisons SSP</h1>
+</div class="box">
+<nav>
+    <a href="http://localhost:8000/admin" class="btn btn-primary">Administration</a>
+    <a href="http://localhost:8000/FORMJMO" class="btn btn-primary">Gestion des missions</a>
+    <a href="http://localhost:8000/FORMENTREE" class="btn btn-primary">Gestion des personnels</a>
+    <a href="http://localhost:8000/FORMENTREE" class="btn btn-primary">Gestion des matériels</a>
+
+</nav>
+
 <body>
-<h1>Gestionnaire de misisons SSP</h1>
+
+
+<div class="container">
+    <div class="row">
+        {% for x in mission %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{x.NomMission }}</h5>
+                    <p class="card-text">Du : {{x.DateDebut }}</p>
+                    <p class="card-text">Au : {{x.DateFin }}</p>
+                    <p class="card-text">{{x.Description }}</p>
+                    <p class="card-poc">{{x.Grade }}{{x.Nigend }}</p>
+                    <a href="{{x.id}}" class="btn btn-primary">Afficher le GPO</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
 </body>
 </html>

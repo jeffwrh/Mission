@@ -8,7 +8,7 @@ class Mission(models.Model):
     Description = models.CharField(max_length=2000)
     Nigend = models.ForeignKey('Personnel', on_delete=models.CASCADE)
 
-    def __str__self(self):
+    def __unicode__(self):
         return self.NomMission
 
 
@@ -16,10 +16,11 @@ class Personnel(models.Model):
     Nigend = models.CharField(max_length=6, unique=True)
     Nom = models.CharField(max_length=50)
     Prenom = models.CharField(max_length=30)
+    Grade = models.CharField(max_length=52)
     Tel = models.CharField(max_length=30)
     Mail = models.EmailField(max_length=100)
 
-    def __str__self(self):
+    def __str__(self):
         return self.Nom
 
 
